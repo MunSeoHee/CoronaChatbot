@@ -46,7 +46,8 @@ def message(request):
     "quickReplies": [
       {
         "messageText": "확진자 정보",
-        "action": "info",
+        "action": "block",
+        "blockId":"info",
         "label": "확진자 정보"
       },
       {
