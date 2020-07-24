@@ -61,7 +61,7 @@ def message(request):
 })
 
     if return_str == '확진자 정보' or return_str == '지역선택' or  return_str=='마스크 약국 현황' or return_str =='위탁병원 정보' :
-      swich return_str:
+      switch return_str :
         case '확진자 정보':
           x = '확진자 정보'
           break
@@ -79,7 +79,7 @@ def message(request):
 
       obj, create = User.objects.get_or_create(userId = id)
       obj.location = x
-      
+
       return JsonResponse({
         "version": "2.0",
           "template": {
