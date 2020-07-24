@@ -74,7 +74,7 @@ def message(request):
 
 
         addr = []
-
+        name =[]
 
         open_url='http://apis.data.go.kr/B552657/ErmctInsttInfoInqireService/getParmacyListInfoInqire?serviceKey=wR48WNzLvEyNkXNTpr3%2Fn62V29gWjkmqZluf%2BSurBS1GC9RRm9BGj6BF%2FBqQvUWSH5LU5NG%2BzKxrGYokLgq2%2Fg%3D%3D&Q0=서울특별&Q1='+return_str+'&ORD=NAME&pageNo=1&numOfRows=10'
 
@@ -87,7 +87,7 @@ def message(request):
 
         for item in data:
             addr.append(item.find('dutytel1').get_text())
-
+            name.append(item.find('dutyname').get_text())
 
 
 
@@ -101,9 +101,24 @@ def message(request):
           "type": "basicCard",
           "items": [
             {
+#추가
+url = 'https://www.google.com/search?q='+name[0]+'&source=lnms&tbm=isch&sa=X&ved=2ahUKEwiw0f_Ou-bqAhWBHXAKHTUrCFwQ_AUoAnoECA4QBA&biw=1295&bih=722'
+req = requests.get(url)
+html = req.text
+
+soup = BeautifulSoup(html,'html.parser')
+
+x = soup.select('img')
+x = x[1]
+#추가
+
               "title": "약국",
               "description": "근처약국을 알려드려요",
-             
+#추가
+             "thumbnail": {
+                "imageUrl": x
+              },
+#추가
               "buttons": [
                 {
                   "action":  "webLink",
