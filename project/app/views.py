@@ -115,13 +115,6 @@ def message(request):
             {
                 "simpleText": {
                     "text":x
-        return JsonResponse({
-    "version": "2.0",
-    "template": {
-        "outputs": [
-            {
-                "simpleText": {
-                    "text": seoul_data[seoul_data.도시=="강동구"][:20]
                 }
             }
         ]
@@ -197,7 +190,7 @@ def message(request):
              {
               "title": "약국",
               "description": "근처약국을 알려드려요",
-             
+
               "buttons": [
                 {
                   "action":  "webLink",
@@ -209,7 +202,7 @@ def message(request):
              {
               "title": "약국",
               "description": "근처약국을 알려드려요",
-             
+
               "buttons": [
                 {
                   "action":  "webLink",
@@ -221,7 +214,7 @@ def message(request):
              {
               "title": "약국",
               "description": "근처약국을 알려드려요",
-             
+
               "buttons": [
                 {
                   "action":  "webLink",
@@ -233,7 +226,7 @@ def message(request):
              {
               "title": "약국",
               "description": "근처약국을 알려드려요",
-             
+
               "buttons": [
                 {
                   "action":  "webLink",
@@ -245,7 +238,7 @@ def message(request):
              {
               "title": "약국",
               "description": "근처약국을 알려드려요",
-             
+
               "buttons": [
                 {
                   "action":  "webLink",
@@ -257,7 +250,7 @@ def message(request):
              {
               "title": "약국",
               "description": "근처약국을 알려드려요",
-             
+
               "buttons": [
                 {
                   "action":  "webLink",
@@ -269,7 +262,7 @@ def message(request):
              {
               "title": "약국",
               "description": "근처약국을 알려드려요",
-             
+
               "buttons": [
                 {
                   "action":  "webLink",
