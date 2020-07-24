@@ -61,19 +61,18 @@ def message(request):
 })
 
     if return_str == '확진자 정보' or return_str == '지역선택' or  return_str=='마스크 약국 현황' or return_str =='위탁병원 정보' :
-      switch return_str :
-        case '확진자 정보':
+        if return_str ==  '확진자 정보':
           x = '확진자 정보'
-          break
-        case '마스크 약국 현황':
+
+        elif return_str == '마스크 약국 현황':
           x = '마스크 약국 현황'
-          break
-        case '위탁병원 정보':
+
+        elif return_str == '위탁병원 정보':
           x = '위탁병원 정보'
-          break
-        case '지역선택':
+
+        elif return_str == '지역선택':
           x = '지역선택'
-          break;
+
 
       id = return_json_str["userRequest"]["user"]["id"]
 
