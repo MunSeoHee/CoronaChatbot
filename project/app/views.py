@@ -16,7 +16,11 @@ def message(request):
     return_str = return_json_str['userRequest']['utterance']
     
     if return_str == '확진자 정보' :
-      
+      id = return_json_str["userRequest"]["user"]["id"]
+      obj, create = User.objects.get_or_create(
+        id = id,
+        location = '확진자 정보'
+      )
       return JsonResponse({
 "version": "2.0",
   "template": {
@@ -28,11 +32,7 @@ def message(request):
       }
     ],
     "quickReplies": [
-      {
-        "messageText": "강남구",
-        "action": "message",
-        "label": "강남구"
-      },
+      
       {
         "messageText": "강동구",
         "action": "message",
