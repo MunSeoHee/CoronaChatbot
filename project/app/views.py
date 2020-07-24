@@ -247,7 +247,6 @@ if return_str == '다른 지역' :
     ]
   }
 })
-
     if return_str == '확진자 정보' :
         id = return_json_str["userRequest"]["user"]["id"]
             obj, create = User.objects.get_or_create(
