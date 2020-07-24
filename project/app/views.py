@@ -74,20 +74,20 @@ def message(request):
         #sadasd
 
 
-addr = []
+        addr = []
 
 
-open_url='http://apis.data.go.kr/B552657/ErmctInsttInfoInqireService/getParmacyListInfoInqire?serviceKey=wR48WNzLvEyNkXNTpr3%2Fn62V29gWjkmqZluf%2BSurBS1GC9RRm9BGj6BF%2FBqQvUWSH5LU5NG%2BzKxrGYokLgq2%2Fg%3D%3D&Q0=서울특별&Q1='+return_str+'&ORD=NAME&pageNo=1&numOfRows=10'
+        open_url='http://apis.data.go.kr/B552657/ErmctInsttInfoInqireService/getParmacyListInfoInqire?serviceKey=wR48WNzLvEyNkXNTpr3%2Fn62V29gWjkmqZluf%2BSurBS1GC9RRm9BGj6BF%2FBqQvUWSH5LU5NG%2BzKxrGYokLgq2%2Fg%3D%3D&Q0=서울특별&Q1='+return_str+'&ORD=NAME&pageNo=1&numOfRows=10'
 
 
-res= requests.get(open_url)
+        res= requests.get(open_url)
 
-yak= BeautifulSoup(res.content,'html.parser')   
+        yak= BeautifulSoup(res.content,'html.parser')   
 
-data=yak.find_all('item')
+        data=yak.find_all('item')
 
-for item in data:
-    addr.append(item.find('dutyaddr').get_text() + item.find('dutyname').get_text())
+        for item in data:
+            addr.append(item.find('dutyaddr').get_text() + item.find('dutyname').get_text())
 
 
 
