@@ -46,7 +46,7 @@ def message(request):
   }
 })
     
-    if return_str == '도봉구' or return_str == '동대문구' or return_str == '동작구' or '은평구' or '강북구' or '강동구' or '강남구' or '강서구' or '금천구' or '구로구' or '관악구' or '광진구' or '종로구' or '중구' or '중랑구' or  '마포구' or '노원구'or '서초구' or  '서대문구' or '성북구' or '성동구' or '송파구' or '양천구' or '영등포구' or '용산구':
+    if return_str == '도봉구' or return_str == '동대문구' or return_str == '동작구' or return_str == '은평구' or return_str == '강북구' or return_str == '강동구' or return_str == '강남구' or return_str == '강서구' or return_str == '금천구' or return_str == '구로구' or return_str == '관악구' or return_str == '광진구' or return_str == '종로구' or return_str == '중구' or return_str == '중랑구' or  return_str == '마포구' or return_str == '노원구'or return_str == '서초구' or  return_str == '서대문구' or return_str == '성북구' or return_str == '성동구' or return_str == '송파구' or return_str == '양천구' or return_str == '영등포구' or return_str == '용산구':
       return JsonResponse({
     "version": "2.0",
     "template": {
