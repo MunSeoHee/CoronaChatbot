@@ -86,7 +86,7 @@ def message(request):
         data=yak.find_all('item')
 
         for item in data:
-            addr.append(item.find('dutyaddr').get_text() + item.find('dutyname').get_text())
+            addr.append(item.find('dutytel1').get_text())
 
 
 
