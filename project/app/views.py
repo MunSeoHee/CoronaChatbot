@@ -12,17 +12,7 @@ from bs4 import BeautifulSoup
 
 # Create your views here.
 def keyboard(request):
-    return redirect('/message/info')
-
-
-@csrf_exempt
-def message(request):
-    answer = ((request.body).decode('utf-8'))
-    return_json_str = json.loads(answer)
-    return_str = return_json_str['userRequest']['utterance']
-
-    if return_str == "테스트" :
-        return JsonResponse({
+    return JsonResponse({
 "version": "2.0",
   "template": {
     "outputs": [
@@ -51,6 +41,15 @@ def message(request):
     ]
   }
 })
+
+
+@csrf_exempt
+def message(request):
+    answer = ((request.body).decode('utf-8'))
+    return_json_str = json.loads(answer)
+    return_str = return_json_str['userRequest']['utterance']
+
+    
 
     if return_str == '도봉구' or return_str == '동대문구' or return_str == '동작구' or return_str == '은평구' or return_str == '강북구' or return_str == '강동구' or return_str == '강남구' or return_str == '강서구' or return_str == '금천구' or return_str == '구로구' or return_str == '관악구' or return_str == '광진구' or return_str == '종로구' or return_str == '중구' or return_str == '중랑구' or  return_str == '마포구' or return_str == '노원구'or return_str == '서초구' or  return_str == '서대문구' or return_str == '성북구' or return_str == '성동구' or return_str == '송파구' or return_str == '양천구' or return_str == '영등포구' or return_str == '용산구':
       id = return_json_str["userRequest"]["user"]["id"]
@@ -202,14 +201,33 @@ def message(request):
                     "text": x
                 }
             }
-        ]
+        ],
+        "quickReplies": [
+      {
+        "messageText": "확진자 정보",
+        "action": "message",
+        "label": "확진자 정보"
+      },
+      {
+        "messageText": "마스크 약국 현황",
+        "action": "message",
+        "label": "마스크 약국 현황"
+      },
+      {
+        "messageText": "위탁병원 정보",
+        "action": "message",
+        "label": "위탁 병원 정보"
+      }
+    ]
+
+        
     }
 })
 
 
 
 
-    if return_str == '확진자 정보' or return_str == '지역선택' or  return_str=='마스크 약국 현황' or return_str =='위탁병원 정보' :
+    elif return_str == '확진자 정보' or return_str == '지역선택' or  return_str=='마스크 약국 현황' or return_str =='위탁병원 정보' :
         if return_str ==  '확진자 정보':
           x = '확진자 정보'
 
@@ -296,7 +314,7 @@ def message(request):
 
 
 
-    if return_str == '그 외' :
+    elif return_str == '그 외' :
       return JsonResponse({
 "version": "2.0",
   "template": {
@@ -362,7 +380,7 @@ def message(request):
   }
 })
 
-    if return_str == '다른 지역' :
+    elif return_str == '다른 지역' :
       return JsonResponse({
     "version": "2.0",
       "template": {
@@ -417,3 +435,34 @@ def message(request):
         ]
       }
     })
+
+    else:
+        return JsonResponse({
+"version": "2.0",
+  "template": {
+    "outputs": [
+      {
+        "simpleText": {
+          "text": "무엇을 알고싶으신가요?"
+        }
+      }
+    ],
+    "quickReplies": [
+      {
+        "messageText": "확진자 정보",
+        "action": "message",
+        "label": "확진자 정보"
+      },
+      {
+        "messageText": "마스크 약국 현황",
+        "action": "message",
+        "label": "마스크 약국 현황"
+      },
+      {
+        "messageText": "위탁병원 정보",
+        "action": "message",
+        "label": "위탁 병원 정보"
+      }
+    ]
+  }
+})
