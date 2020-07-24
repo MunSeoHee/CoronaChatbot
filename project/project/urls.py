@@ -19,6 +19,5 @@ import app.views
 
 urlpatterns = [
       path('keyboard', app.views.keyboard),
-    path('message', app.views.message),
-    path('message/info', app.views.info)
+    path('message', app.views.message)
 ]
