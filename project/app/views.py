@@ -108,7 +108,7 @@ def message(request):
                 {
                   "action":  "webLink",
                   "label": "지도보기",
-                  "webLinkUrl": "https://m.map.naver.com/search2/search.nhn?query="+addr[0]
+                  "webLinkUrl": "https://map.naver.com/v5/search/"+addr[0]
                 }
               ]
             },
@@ -120,7 +120,7 @@ def message(request):
                 {
                   "action":  "webLink",
                   "label": "지도보기",
-                  "webLinkUrl": "https://m.map.naver.com/search2/search.nhn?query="+addr[1]
+                  "webLinkUrl": "https://map.naver.com/v5/search/"+addr[1]
                 }
               ]
             },
