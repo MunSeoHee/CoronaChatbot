@@ -164,7 +164,7 @@ def message(request):
             soup = BeautifulSoup(html,'html.parser')
 
             x = soup.select('img')
-            img.append(x[1]['src'])
+            img.append(x[1])
 
             
 
@@ -202,11 +202,7 @@ def message(request):
              {
               "title": "약국",
               "description": "근처약국을 알려드려요",
-#추가
-             "thumbnail": {
-                "imageUrl": img[1]
-              },
-#추가
+
               "buttons": [
                 {
                   "action":  "webLink",
