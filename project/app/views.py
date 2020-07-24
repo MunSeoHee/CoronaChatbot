@@ -200,58 +200,58 @@ def message(request):
   }
 })
 
-if return_str == '다른 지역' :
+    if return_str == '다른 지역' :
       return JsonResponse({
-"version": "2.0",
-  "template": {
-    "outputs": [
-      {
-        "simpleText": {
-          "text": "지역을 선택해주세요"
-        }
+    "version": "2.0",
+      "template": {
+        "outputs": [
+          {
+            "simpleText": {
+              "text": "지역을 선택해주세요"
+            }
+          }
+        ],
+        "quickReplies": [
+          {
+            "messageText": "양천구",
+            "action": "message",
+            "label": "양천구"
+          },
+          {
+            "messageText": "영등포구",
+            "action": "message",
+            "label": "영등포구"
+          },
+          {
+            "messageText": "용산구",
+            "action": "message",
+            "label": "용산구"
+          },
+          {
+            "messageText": "은평구",
+            "action": "message",
+            "label": "은평구"
+          },
+          {
+            "messageText": "종로구",
+            "action": "message",
+            "label": "종로구"
+          },
+          {
+            "messageText": "중구",
+            "action": "message",
+            "label": "중구"
+          },
+          {
+            "messageText": "중랑구",
+            "action": "message",
+            "label": "중랑구"
+          },
+          {
+            "messageText": "지역 선택",
+            "action": "message",
+            "label": "지역 선택"
+          }
+        ]
       }
-    ],
-    "quickReplies": [
-      {
-        "messageText": "양천구",
-        "action": "message",
-        "label": "양천구"
-      },
-      {
-        "messageText": "영등포구",
-        "action": "message",
-        "label": "영등포구"
-      },
-      {
-        "messageText": "용산구",
-        "action": "message",
-        "label": "용산구"
-      },
-      {
-        "messageText": "은평구",
-        "action": "message",
-        "label": "은평구"
-      },
-      {
-        "messageText": "종로구",
-        "action": "message",
-        "label": "종로구"
-      },
-      {
-        "messageText": "중구",
-        "action": "message",
-        "label": "중구"
-      },
-      {
-        "messageText": "중랑구",
-        "action": "message",
-        "label": "중랑구"
-      },
-      {
-        "messageText": "지역 선택",
-        "action": "message",
-        "label": "지역 선택"
-      }
-    ]
-  }
-})
+    })
