@@ -47,18 +47,50 @@ def message(request):
 })
     
     if return_str == '도봉구' or return_str == '동대문구' or return_str == '동작구' or return_str == '은평구' or return_str == '강북구' or return_str == '강동구' or return_str == '강남구' or return_str == '강서구' or return_str == '금천구' or return_str == '구로구' or return_str == '관악구' or return_str == '광진구' or return_str == '종로구' or return_str == '중구' or return_str == '중랑구' or  return_str == '마포구' or return_str == '노원구'or return_str == '서초구' or  return_str == '서대문구' or return_str == '성북구' or return_str == '성동구' or return_str == '송파구' or return_str == '양천구' or return_str == '영등포구' or return_str == '용산구':
-      return JsonResponse({
+      id = return_json_str["userRequest"]["user"]["id"]
+      choice = User.objects.get(userId=id)
+      if choice.location == '확진자 정보':
+        return JsonResponse({
     "version": "2.0",
     "template": {
         "outputs": [
             {
                 "simpleText": {
-                    "text": "간단한 텍스트 요소입니다."
+                    "text": "확진자 정보"
                 }
             }
         ]
     }
 })
+      elif choice.location == '마스크 약국 현황':
+        return JsonResponse({
+    "version": "2.0",
+    "template": {
+        "outputs": [
+            {
+                "simpleText": {
+                    "text": "마스크 약국"
+                }
+            }
+        ]
+    }
+})
+      elif choice.location == '위탁병원 정보':
+        return JsonResponse({
+    "version": "2.0",
+    "template": {
+        "outputs": [
+            {
+                "simpleText": {
+                    "text": "위탁 병원 정보"
+                }
+            }
+        ]
+    }
+})
+        
+
+      
 
     if return_str == '확진자 정보' or return_str == '지역선택' or  return_str=='마스크 약국 현황' or return_str =='위탁병원 정보' :
         if return_str ==  '확진자 정보':
