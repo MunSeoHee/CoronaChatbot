@@ -72,77 +72,76 @@ def message(request):
 
         elif return_str == '지역선택':
           x = '지역선택'
+        
+        id = return_json_str["userRequest"]["user"]["id"]
 
+        obj, create = User.objects.get_or_create(userId = id)
+        obj.location = x
 
-      id = return_json_str["userRequest"]["user"]["id"]
-
-      obj, create = User.objects.get_or_create(userId = id)
-      obj.location = x
-
-      return JsonResponse({
-        "version": "2.0",
-          "template": {
-            "outputs": [
-              {
-                "simpleText": {
-                  "text": "지역을 선택해주세요"
+        return JsonResponse({
+          "version": "2.0",
+            "template": {
+              "outputs": [
+                {
+                  "simpleText": {
+                    "text": "지역을 선택해주세요"
+                  }
                 }
-              }
-            ],
-            "quickReplies": [
-              {
-                "messageText": "강남구",
-                "action": "message",
-                "label": "강남구"
-              },
-              {
-                "messageText": "강동구",
-                "action": "message",
-                "label": "강동구"
-              },
-              {
-                "messageText": "강북구",
-                "action": "message",
-                "label": "강북구"
-              },
-              {
-                "messageText": "강서구",
-                "action": "message",
-                "label": "강서구"
-              },
-              {
-                "messageText": "관악구",
-                "action": "message",
-                "label": "관악구"
-              },
-              {
-                "messageText": "광진구",
-                "action": "message",
-                "label": "광진구"
-              },
-              {
-                "messageText": "구로구",
-                "action": "message",
-                "label": "구로구"
-              },
-              {
-                "messageText": "금천구",
-                "action": "message",
-                "label": "금천구"
-              },
-              {
-                "messageText": "노원구",
-                "action": "message",
-                "label": "노원구"
-              },
-              {
-                "messageText": "그 외",
-                "action": "message",
-                "label": "그 외"
-              }
-            ]
-          }
-        })
+              ],
+              "quickReplies": [
+                {
+                  "messageText": "강남구",
+                  "action": "message",
+                  "label": "강남구"
+                },
+                {
+                  "messageText": "강동구",
+                  "action": "message",
+                  "label": "강동구"
+                },
+                {
+                  "messageText": "강북구",
+                  "action": "message",
+                  "label": "강북구"
+                },
+                {
+                  "messageText": "강서구",
+                  "action": "message",
+                  "label": "강서구"
+                },
+                {
+                  "messageText": "관악구",
+                  "action": "message",
+                  "label": "관악구"
+                },
+                {
+                  "messageText": "광진구",
+                  "action": "message",
+                  "label": "광진구"
+                },
+                {
+                  "messageText": "구로구",
+                  "action": "message",
+                  "label": "구로구"
+                },
+                {
+                  "messageText": "금천구",
+                  "action": "message",
+                  "label": "금천구"
+                },
+                {
+                  "messageText": "노원구",
+                  "action": "message",
+                  "label": "노원구"
+                },
+                {
+                  "messageText": "그 외",
+                  "action": "message",
+                  "label": "그 외"
+                }
+              ]
+            }
+          })
     
     
     
