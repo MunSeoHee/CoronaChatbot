@@ -80,6 +80,14 @@ def message(request):
     answer = ((request.body).decode('utf-8'))
     return_json_str = json.loads(answer)
     return_str = return_json_str['userRequest']['utterance']
+
+    if return_str == '확진자 정보' :
+      id = return_json_str["userRequest"]["user"]["id"]
+          obj, create = User.objects.get_or_create(
+          id = id,
+          location = '확진자 정보'
+      )
+      return location
     
     if return_str == "블록" :
       return JsonResponse({
@@ -247,10 +255,3 @@ if return_str == '다른 지역' :
     ]
   }
 })
-    if return_str == '확진자 정보' :
-        id = return_json_str["userRequest"]["user"]["id"]
-            obj, create = User.objects.get_or_create(
-            id = id,
-            location = '확진자 정보'
-        )
-        return location
