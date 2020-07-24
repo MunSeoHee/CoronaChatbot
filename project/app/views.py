@@ -41,11 +41,6 @@ def message(request):
         "messageText": "위탁병원 정보",
         "action": "message",
         "label": "위탁 병원 정보"
-      },
-      {
-        "messageText": "송파구",
-        "action": "message",
-        "label": "송파구"
       }
     ]
   }
