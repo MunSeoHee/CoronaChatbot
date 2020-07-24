@@ -339,7 +339,7 @@ def message(request):
         "outputs": [
             {
                 "simpleText": {
-                    "text":           if return_str == "강동구"
+                    "text":x
         return JsonResponse({
     "version": "2.0",
     "template": {
