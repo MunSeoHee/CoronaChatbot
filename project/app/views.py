@@ -94,7 +94,7 @@ def message(request):
             ]
         }
         })
-    if return_str == "테스트":
+    if return_str == "테스트" :
         return JsonResponse({
 "version": "2.0",
   "template": {
@@ -126,7 +126,7 @@ def message(request):
   }
 })
 
-    if return_str == '그 외':
+    if return_str == '그 외' :
       return JsonResponse({
 "version": "2.0",
   "template": {
@@ -192,7 +192,7 @@ def message(request):
   }
 })
 
-if return_str == '다른 지역':
+if return_str == '다른 지역' :
       return JsonResponse({
 "version": "2.0",
   "template": {
@@ -248,7 +248,7 @@ if return_str == '다른 지역':
   }
 })
 
-    if return_str == '확진자 정보':
+    if return_str == '확진자 정보' :
         id = return_json_str["userRequest"]["user"]["id"]
             obj, create = User.objects.get_or_create(
             id = id,
