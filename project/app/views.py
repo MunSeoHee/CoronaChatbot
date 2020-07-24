@@ -15,7 +15,7 @@ def message(request):
     return_str = return_json_str['userRequest']['utterance']
     
     if return_str == "확진자 정보":
-        return JsonResponse({{
+        return JsonResponse({
     "version": "2.0",
     "template": {
         "outputs": [
@@ -26,7 +26,7 @@ def message(request):
             }
         ]
     }
-}})
+})
 
 
     if return_str == "강남구":
