@@ -22,25 +22,25 @@ def message(request):
     "outputs": [
       {
         "simpleText": {
-          "text": "지역을 선택해주세요"
+          "text": "무엇을 알고싶으신가요?"
         }
       }
     ],
     "quickReplies": [
       {
-        "messageText": "강남구",
+        "messageText": "확진자 정보",
         "action": "message",
-        "label": "강남구"
+        "label": "확진자 정보"
       },
       {
-        "messageText": "중구",
+        "messageText": "마스크 약국 현황",
         "action": "message",
-        "label": "중구"
+        "label": "마스크 약국 현황"
       },
       {
-        "messageText": "서초구",
+        "messageText": "위탁병원 정보",
         "action": "message",
-        "label": "서초구"
+        "label": "위탁 병원 정보"
       },
       {
         "messageText": "송파구",
