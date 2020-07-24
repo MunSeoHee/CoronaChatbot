@@ -136,8 +136,11 @@ def message(request):
                 }
               ]
             }
-          ],
-          "quickReplies": [
+          ]
+        }
+      }
+    ],
+    "quickReplies": [
       {
         "messageText": "확진자 정보",
         "action": "message",
@@ -152,9 +155,6 @@ def message(request):
         "messageText": "위탁병원 정보",
         "action": "message",
         "label": "위탁 병원 정보"
-      }
-    ]
-        }
       }
     ]
   }
