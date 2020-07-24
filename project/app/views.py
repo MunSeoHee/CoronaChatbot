@@ -5,7 +5,8 @@ import json
 from .models import User
 import pandas as pd
 import numpy as np
-
+import requests
+from bs4 import BeautifulSoup
 # read Seoul Data
 seoul_data=pd.read_csv("seoul.csv")
 seoul_data= seoul_data.drop("Unnamed: 0",axis=1)
@@ -70,17 +71,97 @@ def message(request):
         }
     })
       elif choice.location == '마스크 약국 현황':
+        #sadasd
+
+
+addr = []
+
+
+open_url='http://apis.data.go.kr/B552657/ErmctInsttInfoInqireService/getParmacyListInfoInqire?serviceKey=wR48WNzLvEyNkXNTpr3%2Fn62V29gWjkmqZluf%2BSurBS1GC9RRm9BGj6BF%2FBqQvUWSH5LU5NG%2BzKxrGYokLgq2%2Fg%3D%3D&Q0=서울특별&Q1='+return_str+'&ORD=NAME&pageNo=1&numOfRows=10'
+
+
+res= requests.get(open_url)
+
+yak= BeautifulSoup(res.content,'html.parser')   
+
+data=yak.find_all('item')
+
+for item in data:
+    addr.append(item.find('dutyaddr').get_text() + item.find('dutyname').get_text())
+
+
+
+        #sdaasdasd
         return JsonResponse({
-    "version": "2.0",
-    "template": {
-        "outputs": [
+  "version": "2.0",
+  "template": {
+    "outputs": [
+      {
+        "carousel": {
+          "type": "basicCard",
+          "items": [
             {
-                "simpleText": {
-                    "text": "마스크 약국"
+              "title": "보물상자",
+              "description": "보물상자 안에는 뭐가 있을까",
+              "thumbnail": {
+                "imageUrl": "http://k.kakaocdn.net/dn/83BvP/bl20duRC1Q1/lj3JUcmrzC53YIjNDkqbWK/i_6piz1p.jpg"
+              },
+              "buttons": [
+                {
+                  "action": "message",
+                  "label": "열어보기",
+                  "messageText": "짜잔! 우리가 찾던 보물입니다"
+                },
+                {
+                  "action":  "webLink",
+                  "label": "구경하기",
+                  "webLinkUrl": "https://e.kakao.com/t/hello-ryan"
                 }
+              ]
+            },
+            {
+              "title": "보물상자2",
+              "description": "보물상자2 안에는 뭐가 있을까",
+              "thumbnail": {
+                "imageUrl": "http://k.kakaocdn.net/dn/83BvP/bl20duRC1Q1/lj3JUcmrzC53YIjNDkqbWK/i_6piz1p.jpg"
+              },
+              "buttons": [
+                {
+                  "action": "message",
+                  "label": "열어보기",
+                  "messageText": "짜잔! 우리가 찾던 보물입니다"
+                },
+                {
+                  "action":  "webLink",
+                  "label": "구경하기",
+                  "webLinkUrl": "https://e.kakao.com/t/hello-ryan"
+                }
+              ]
+            },
+            {
+              "title": "보물상자3",
+              "description": "보물상자3 안에는 뭐가 있을까",
+              "thumbnail": {
+                "imageUrl": "http://k.kakaocdn.net/dn/83BvP/bl20duRC1Q1/lj3JUcmrzC53YIjNDkqbWK/i_6piz1p.jpg"
+              },
+              "buttons": [
+                {
+                  "action": "message",
+                  "label": "열어보기",
+                  "messageText": "짜잔! 우리가 찾던 보물입니다"
+                },
+                {
+                  "action":  "webLink",
+                  "label": "구경하기",
+                  "webLinkUrl": "https://e.kakao.com/t/hello-ryan"
+                }
+              ]
             }
-        ]
-    }
+          ]
+        }
+      }
+    ]
+  }
 })
       elif choice.location == '위탁병원 정보':
         return JsonResponse({
