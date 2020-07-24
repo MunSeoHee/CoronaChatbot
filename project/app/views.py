@@ -22,79 +22,71 @@ def message(request):
         location = '확진자 정보'
       )
       return JsonResponse({
-"version": "2.0",
-  "template": {
-    "outputs": [
-      {
-        "simpleText": {
-          "text": "지역을 선택해주세요"
-        }
-      }
-    ],
-    "quickReplies": [
-      
-      {
-        "messageText": "강동구",
-        "action": "message",
-        "label": "강동구"
-      },
-      {
-        "messageText": "강북구",
-        "action": "message",
-        "label": "강북구"
-      },
-      {
-        "messageText": "강서구",
-        "action": "message",
-        "label": "강서구"
-      },
-      {
-        "messageText": "관악구",
-        "action": "message",
-        "label": "관악구"
-      },
-      {
-        "messageText": "광진구",
-        "action": "message",
-        "label": "광진구"
-      },
-      {
-        "messageText": "구로구",
-        "action": "message",
-        "label": "구로구"
-      },
-      {
-        "messageText": "금천구",
-        "action": "message",
-        "label": "금천구"
-      },
-      {
-        "messageText": "노원구",
-        "action": "message",
-        "label": "노원구"
-      },
-      {
-        "messageText": "그 외",
-        "action": "message",
-        "label": "그 외"
-      }
-    ]
-  }
-})
-    
-    if return_str == "블록" :
-      return JsonResponse({
-          "version": "2.0",
-        "template": {
+        "version": "2.0",
+          "template": {
             "outputs": [
-                {
-                    "simpleText": {
-                        "text": return_json_str['userRequest']['block']['id']
-                    }
+              {
+                "simpleText": {
+                  "text": "지역을 선택해주세요"
                 }
+              }
+            ],
+            "quickReplies": [
+              {
+                "messageText": "강남구",
+                "action": "message",
+                "label": "강남구"
+              },
+              {
+                "messageText": "강동구",
+                "action": "message",
+                "label": "강동구"
+              },
+              {
+                "messageText": "강북구",
+                "action": "message",
+                "label": "강북구"
+              },
+              {
+                "messageText": "강서구",
+                "action": "message",
+                "label": "강서구"
+              },
+              {
+                "messageText": "관악구",
+                "action": "message",
+                "label": "관악구"
+              },
+              {
+                "messageText": "광진구",
+                "action": "message",
+                "label": "광진구"
+              },
+              {
+                "messageText": "구로구",
+                "action": "message",
+                "label": "구로구"
+              },
+              {
+                "messageText": "금천구",
+                "action": "message",
+                "label": "금천구"
+              },
+              {
+                "messageText": "노원구",
+                "action": "message",
+                "label": "노원구"
+              },
+              {
+                "messageText": "그 외",
+                "action": "message",
+                "label": "그 외"
+              }
             ]
-        }
+          }
         })
+    
+    
     if return_str == "테스트" :
         return JsonResponse({
 "version": "2.0",
@@ -110,7 +102,7 @@ def message(request):
       {
         "messageText": "확진자 정보",
         "action": "block",
-        "blockId":"info",
+        "blockId":"message",
         "label": "확진자 정보"
       },
       {
