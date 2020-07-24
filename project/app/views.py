@@ -221,7 +221,26 @@ def message(request):
                     "text": x
                 }
             }
-        ]
+        ],
+        "quickReplies": [
+      {
+        "messageText": "확진자 정보",
+        "action": "message",
+        "label": "확진자 정보"
+      },
+      {
+        "messageText": "마스크 약국 현황",
+        "action": "message",
+        "label": "마스크 약국 현황"
+      },
+      {
+        "messageText": "위탁병원 정보",
+        "action": "message",
+        "label": "위탁 병원 정보"
+      }
+    ]
+
+        
     }
 })
 
