@@ -30,8 +30,8 @@ def message(request):
     return_json_str = json.loads(answer)
     return_str = return_json_str['userRequest']['utterance']
     
-   if return_str == "블록":
-        return JsonResponse({
+    if return_str == "블록" :
+      return JsonResponse({
           "version": "2.0",
         "template": {
             "outputs": [
