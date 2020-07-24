@@ -6,10 +6,16 @@ import json
 # Create your views here.
 def keyboard(request):
     return redirect('/message/info')
-    
+
+
 @csrf_exempt
-def info(request):
-    return JsonResponse({
+def message(request):
+    answer = ((request.body).decode('utf-8'))
+    return_json_str = json.loads(answer)
+    return_str = return_json_str['userRequest']['utterance']
+    
+    if return_str == "확진자 정보":
+        return JsonResponse({{
     "version": "2.0",
     "template": {
         "outputs": [
@@ -20,17 +26,9 @@ def info(request):
             }
         ]
     }
-})
+}})
 
 
-@csrf_exempt
-def message(request):
-    answer = ((request.body).decode('utf-8'))
-    return_json_str = json.loads(answer)
-    return_str = return_json_str['userRequest']['utterance']
- 
-    if return_str == "확진자 정보":
-        return 
     if return_str == "강남구":
         return JsonResponse({
 "version": "2.0",
