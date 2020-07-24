@@ -30,7 +30,25 @@ def message(request):
     return_json_str = json.loads(answer)
     return_str = return_json_str['userRequest']['utterance']
     
+    if return_str == "블록":
+      app.post("/info", function(req, res) {
+  const userRequest = req.body.userRequest;
+  const blockId = userRequest.block.id;
 
+  return res.send({
+    version: "2.0",
+    template: {
+      outputs: [
+        {
+          basicCard: {
+            title: "블록ID 입니다",
+            description: blockId
+          }
+        }
+      ]
+    }
+  });
+});
 
     if return_str == "강남구":
         return JsonResponse({
