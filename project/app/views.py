@@ -56,18 +56,19 @@ def message(request):
       id = return_json_str["userRequest"]["user"]["id"]
       choice = User.objects.get(userId=id)
       if choice.location == '확진자 정보':
-        return JsonResponse({
-    "version": "2.0",
-    "template": {
-        "outputs": [
-            {
-                "simpleText": {
-                    "text": seoul_data[seoul_data.도시== str(return_str)]
+          if return_str == "강동구"
+            return JsonResponse({
+        "version": "2.0",
+        "template": {
+            "outputs": [
+                {
+                    "simpleText": {
+                        "text": seoul_data[seoul_data.도시== str(return_str)]
+                    }
                 }
-            }
-        ]
-    }
-})
+            ]
+        }
+    })
       elif choice.location == '마스크 약국 현황':
         return JsonResponse({
     "version": "2.0",
