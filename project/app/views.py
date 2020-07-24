@@ -16,6 +16,7 @@ def message(request):
     return_str = return_json_str['userRequest']['utterance']
     
     if return_str == '확진자 정보' :
+      id = return_json_str["userRequest"]["user"]["id"]
       
       return JsonResponse({
         "version": "2.0",
