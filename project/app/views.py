@@ -77,6 +77,7 @@ def message(request):
 
         obj, create = User.objects.get_or_create(userId = id)
         obj.location = x
+        obj.save()
 
         return JsonResponse({
           "version": "2.0",
