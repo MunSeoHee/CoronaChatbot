@@ -18,6 +18,7 @@ from django.urls import path
 import app.views
 
 urlpatterns = [
+    path('admin/', admin.site.urls),
       path('keyboard', app.views.keyboard),
     path('message', app.views.message)
 ]
