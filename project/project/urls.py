@@ -18,12 +18,6 @@ from django.urls import path
 import app.views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', app.views.index, name='index'),
-    path('<int:board_id>', app.views.read, name='read'),
-    path('delete/<int:board_id>', app.views.delete, name='delete'),
-    path('update/<int:board_id>', app.views.update, name='update'),
-    path('up/<int:board_id>', app.views.up, name='up'),
-    path('create', app.views.create, name='create'),
-    path('new', app.views.new, name='new')
+      url(r'^keyboard/?$', views.keyboard),
+    url(r'^message', views.message)
 ]

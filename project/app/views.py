@@ -1,40 +1,32 @@
-from django.shortcuts import render,redirect, get_object_or_404
-from .models import Board
-import datetime
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+import json
+
 # Create your views here.
-def index(request):
-    board = Board.objects
-    return render(request, 'index.html', {'boards':board})
+def keyboard(request):
+    return JsonResponse({
+        'type': 'text'
+    })
 
-def read(request, board_id):
-    read = get_object_or_404(Board, pk=board_id)
-    return render(request, 'read.html', {'read':read})
+@csrf_exempt
+def message(request):
+    answer = ((request.body).decode('utf-8'))
+    return_json_str = json.loads(answer)
+    return_str = return_json_str['userRequest']['utterance']
 
-def delete(request, board_id):
-    ob = get_object_or_404(Board, pk=board_id)
-    ob.delete()
-    return redirect('/')
-
-def update(request, board_id):
-    ob = get_object_or_404(Board, pk=board_id)
-    return render(request, 'update.html', {'ob':ob})
-
-def up(request, board_id):
-    ob = get_object_or_404(Board, pk=board_id)
-    ob.title = request.GET['title']
-    ob.text = request.GET['text']
-    ob.category = request.GET['category']
-    ob.date = datetime.datetime.now()
-    ob.save()
-    return redirect('/'+str(board_id))
-
-def create(request):
-    return render(request, 'new.html')
-
-def new(request):
-    ob = Board()
-    ob.title = request.GET['title']
-    ob.text = request.GET['text']
-    ob.category = request.GET['category']
-    ob.save()
-    return redirect('/'+str(ob.id))
+    if return_str == '테스트':
+        return JsonResponse({
+            'version': "2.0",
+            'template': {
+                'outputs': [{
+                    'simpleText': {
+                        'text': "테스트 성공입니다."
+                    }
+                }],
+                'quickReplies': [{
+                    'label': '처음으로',
+                    'action': 'message',
+                    'messageText': '처음으로'
+                }]
+            }
+        })
