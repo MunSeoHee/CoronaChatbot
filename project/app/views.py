@@ -14,40 +14,69 @@ def message(request):
     return_json_str = json.loads(answer)
     return_str = return_json_str['userRequest']['utterance']
 
-    if return_str == '테스트':
+    if return_str == "강남구":
         return JsonResponse({
-  "version": "2.0",
+            {
+"version": "2.0",
   "template": {
     "outputs": [
       {
-        "basicCard": {
-          "title": "보물상자",
-          "description": "보물상자 안에는 뭐가 있을까",
-          "thumbnail": {
-            "imageUrl": "http://k.kakaocdn.net/dn/83BvP/bl20duRC1Q1/lj3JUcmrzC53YIjNDkqbWK/i_6piz1p.jpg"
-          },
-          "profile": {
-            "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4BJ9LU4Ikr_EvZLmijfcjzQKMRCJ2bO3A8SVKNuQ78zu2KOqM",
-            "nickname": "보물상자"
-          },
-          "social": {
-            "like": 1238,
-            "comment": 8,
-            "share": 780
-          },
-          "buttons": [
-            {
-              "action": "message",
-              "label": "열어보기",
-              "messageText": "짜잔! 우리가 찾던 보물입니다"
-            },
-            {
-              "action":  "webLink",
-              "label": "구경하기",
-              "webLinkUrl": "https://e.kakao.com/t/hello-ryan"
-            }
-          ]
+        "simpleText": {
+          "text": "무엇을 알고 싶으신가요?"
         }
+      }
+    ],
+    "quickReplies": [
+      {
+        "messageText": "확진자 정보",
+        "action": "message",
+        "label": "확진자 정보"
+      },
+      {
+        "messageText": "마스크 약국 현황",
+        "action": "message",
+        "label": "마스크 약국 현황"
+      },
+      {
+        "messageText": "위탁 병원 정보",
+        "action": "message",
+        "label": "위탁 병원 정보"
+      }
+    ]
+  }
+}
+        })
+    if return_str == '테스트':
+        return JsonResponse({
+"version": "2.0",
+  "template": {
+    "outputs": [
+      {
+        "simpleText": {
+          "text": "지역을 선택해주세요"
+        }
+      }
+    ],
+    "quickReplies": [
+      {
+        "messageText": "강남구",
+        "action": "message",
+        "label": "강남구"
+      },
+      {
+        "messageText": "중구",
+        "action": "message",
+        "label": "중구"
+      },
+      {
+        "messageText": "서초구",
+        "action": "message",
+        "label": "서초구"
+      },
+      {
+        "messageText": "송파구",
+        "action": "message",
+        "label": "송파구"
       }
     ]
   }
