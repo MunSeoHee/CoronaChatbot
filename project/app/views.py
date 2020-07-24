@@ -4,8 +4,24 @@ from django.shortcuts import redirect
 import json
 from .models import User
 
+# Create your views here.
+def keyboard(request):
+    return redirect('/message/info')
 
-location = JsonResponse({
+
+@csrf_exempt
+def message(request):
+    answer = ((request.body).decode('utf-8'))
+    return_json_str = json.loads(answer)
+    return_str = return_json_str['userRequest']['utterance']
+    
+    if return_str == '확진자 정보' :
+      id = return_json_str["userRequest"]["user"]["id"]
+      obj, create = User.objects.get_or_create(
+        id = id,
+        location = '확진자 정보'
+      )
+      return JsonResponse({
 "version": "2.0",
   "template": {
     "outputs": [
@@ -69,25 +85,6 @@ location = JsonResponse({
     ]
   }
 })
-
-# Create your views here.
-def keyboard(request):
-    return redirect('/message/info')
-
-
-@csrf_exempt
-def message(request):
-    answer = ((request.body).decode('utf-8'))
-    return_json_str = json.loads(answer)
-    return_str = return_json_str['userRequest']['utterance']
-    
-    if return_str == '확진자 정보' :
-      id = return_json_str["userRequest"]["user"]["id"]
-      obj, create = User.objects.get_or_create(
-        id = id,
-        location = '확진자 정보'
-      )
-      return location
     
     if return_str == "블록" :
       return JsonResponse({
