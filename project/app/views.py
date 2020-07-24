@@ -31,18 +31,18 @@ def message(request):
     return_str = return_json_str['userRequest']['utterance']
     
    if return_str == "블록":
-     return JsonResponse({
-       "version": "2.0",
-    "template": {
-        "outputs": [
-            {
-                "simpleText": {
-                    "text": return_json_str['userRequest']['block']['id']
+        return JsonResponse({
+          "version": "2.0",
+        "template": {
+            "outputs": [
+                {
+                    "simpleText": {
+                        "text": return_json_str['userRequest']['block']['id']
+                    }
                 }
-            }
-        ]
-    }
-     })
+            ]
+        }
+        })
     if return_str == "강남구":
         return JsonResponse({
 "version": "2.0",
