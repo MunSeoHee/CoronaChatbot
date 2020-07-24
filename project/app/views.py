@@ -164,7 +164,7 @@ def message(request):
             soup = BeautifulSoup(html,'html.parser')
 
             x = soup.select('img')
-            img.append(x[1])
+            img.append(x[1]['src'])
 
             
 
