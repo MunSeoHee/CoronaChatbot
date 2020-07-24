@@ -157,12 +157,10 @@ def message(request):
         for item in data:
             addr.append(item.find('dutytel1').get_text())
             name.append(item.find('dutyname').get_text())
-            url = 'https://www.google.com/search?q='+item.find('dutyname').get_text()+'&source=lnms&tbm=isch&sa=X&ved=2ahUKEwiw0f_Ou-bqAhWBHXAKHTUrCFwQ_AUoAnoECA4QBA&biw=1295&bih=722'
+            url = 'https://www.google.com/search?q='+(item.find('dutyname').get_text())+'&source=lnms&tbm=isch&sa=X&ved=2ahUKEwiw0f_Ou-bqAhWBHXAKHTUrCFwQ_AUoAnoECA4QBA&biw=1295&bih=722'
             req = requests.get(url)
             html = req.text
-
             soup = BeautifulSoup(html,'html.parser')
-
             x = soup.select('img')
             img.append(x[1]['src'])
 
