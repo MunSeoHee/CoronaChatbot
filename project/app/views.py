@@ -15,7 +15,21 @@ def message(request):
     return_json_str = json.loads(answer)
     return_str = return_json_str['userRequest']['utterance']
     
-    if return_str == '확진자 정보' :
+    if return_str == '도봉구' or return_str == '동대문구' or return_str == '동작구' or '은평구' or '강북구' or '강동구' or '강남구' or '강서구' or '금천구' or '구로구' or '관악구' or '광진구' or '종로구' or '중구' or '중랑구' or  '마포구' or '노원구'or '서초구' or  '서대문구' or '성북구' or '성동구' or '송파구' or '양천구' or '영등포구' or '용산구':
+      return JsonResponse({
+    "version": "2.0",
+    "template": {
+        "outputs": [
+            {
+                "simpleText": {
+                    "text": "간단한 텍스트 요소입니다."
+                }
+            }
+        ]
+    }
+})
+
+    if return_str == '확진자 정보' or return_str == '지역선택' or  return_str=='마스크 약국 현황' or return_str =='위탁병원 정보' :
       id = return_json_str["userRequest"]["user"]["id"]
       obj, create = User.objects.get_or_create(
         userId = id,
