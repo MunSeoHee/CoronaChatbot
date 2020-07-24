@@ -14,6 +14,37 @@ def message(request):
     answer = ((request.body).decode('utf-8'))
     return_json_str = json.loads(answer)
     return_str = return_json_str['userRequest']['utterance']
+
+    if return_str == "테스트" :
+        return JsonResponse({
+"version": "2.0",
+  "template": {
+    "outputs": [
+      {
+        "simpleText": {
+          "text": "무엇을 알고싶으신가요?"
+        }
+      }
+    ],
+    "quickReplies": [
+      {
+        "messageText": "확진자 정보",
+        "action": "message",
+        "label": "확진자 정보"
+      },
+      {
+        "messageText": "마스크 약국 현황",
+        "action": "message",
+        "label": "마스크 약국 현황"
+      },
+      {
+        "messageText": "위탁병원 정보",
+        "action": "message",
+        "label": "위탁 병원 정보"
+      }
+    ]
+  }
+})
     
     if return_str == '도봉구' or return_str == '동대문구' or return_str == '동작구' or '은평구' or '강북구' or '강동구' or '강남구' or '강서구' or '금천구' or '구로구' or '관악구' or '광진구' or '종로구' or '중구' or '중랑구' or  '마포구' or '노원구'or '서초구' or  '서대문구' or '성북구' or '성동구' or '송파구' or '양천구' or '영등포구' or '용산구':
       return JsonResponse({
@@ -101,36 +132,7 @@ def message(request):
         })
     
     
-    if return_str == "테스트" :
-        return JsonResponse({
-"version": "2.0",
-  "template": {
-    "outputs": [
-      {
-        "simpleText": {
-          "text": "무엇을 알고싶으신가요?"
-        }
-      }
-    ],
-    "quickReplies": [
-      {
-        "messageText": "확진자 정보",
-        "action": "message",
-        "label": "확진자 정보"
-      },
-      {
-        "messageText": "마스크 약국 현황",
-        "action": "message",
-        "label": "마스크 약국 현황"
-      },
-      {
-        "messageText": "위탁병원 정보",
-        "action": "message",
-        "label": "위탁 병원 정보"
-      }
-    ]
-  }
-})
+    
 
     if return_str == '그 외' :
       return JsonResponse({
