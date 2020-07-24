@@ -18,7 +18,7 @@ def message(request):
     if return_str == '확진자 정보' :
       id = return_json_str["userRequest"]["user"]["id"]
       obj, create = User.objects.get_or_create(
-        id = id,
+        userId = id,
         location = '확진자 정보'
       )
       return JsonResponse({
