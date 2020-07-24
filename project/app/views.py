@@ -3,6 +3,12 @@ from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import redirect
 import json
 from .models import User
+import pandas as pd
+import numpy as np
+
+# read Seoul Data
+seoul_data=pd.read_csv("seoul.csv")
+seoul_data= seoul_data.drop("Unnamed: 0",axis=1)
 
 # Create your views here.
 def keyboard(request):
@@ -45,7 +51,7 @@ def message(request):
     ]
   }
 })
-    
+
     if return_str == '도봉구' or return_str == '동대문구' or return_str == '동작구' or return_str == '은평구' or return_str == '강북구' or return_str == '강동구' or return_str == '강남구' or return_str == '강서구' or return_str == '금천구' or return_str == '구로구' or return_str == '관악구' or return_str == '광진구' or return_str == '종로구' or return_str == '중구' or return_str == '중랑구' or  return_str == '마포구' or return_str == '노원구'or return_str == '서초구' or  return_str == '서대문구' or return_str == '성북구' or return_str == '성동구' or return_str == '송파구' or return_str == '양천구' or return_str == '영등포구' or return_str == '용산구':
       id = return_json_str["userRequest"]["user"]["id"]
       choice = User.objects.get(userId=id)
@@ -56,7 +62,7 @@ def message(request):
         "outputs": [
             {
                 "simpleText": {
-                    "text": "확진자 정보"
+                    "text": seoul_data[seoul_data.도시== str(return_str)]
                 }
             }
         ]
@@ -88,9 +94,9 @@ def message(request):
         ]
     }
 })
-        
 
-      
+
+
 
     if return_str == '확진자 정보' or return_str == '지역선택' or  return_str=='마스크 약국 현황' or return_str =='위탁병원 정보' :
         if return_str ==  '확진자 정보':
@@ -104,7 +110,7 @@ def message(request):
 
         elif return_str == '지역선택':
           x = '지역선택'
-        
+
         id = return_json_str["userRequest"]["user"]["id"]
 
         obj, create = User.objects.get_or_create(userId = id)
@@ -175,9 +181,9 @@ def message(request):
               ]
             }
           })
-    
-    
-    
+
+
+
 
     if return_str == '그 외' :
       return JsonResponse({
