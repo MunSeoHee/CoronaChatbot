@@ -8,8 +8,7 @@ import numpy as np
 import requests
 from bs4 import BeautifulSoup
 # read Seoul Data
-seoul_data=pd.read_csv("seoul.csv")
-seoul_data= seoul_data.drop("Unnamed: 0",axis=1)
+
 
 # Create your views here.
 def keyboard(request):
