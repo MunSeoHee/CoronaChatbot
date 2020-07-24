@@ -143,7 +143,7 @@ def message(request):
 
         addr = []
         name =[]
-        img = []
+        
 
         open_url='http://apis.data.go.kr/B552657/ErmctInsttInfoInqireService/getParmacyListInfoInqire?serviceKey=wR48WNzLvEyNkXNTpr3%2Fn62V29gWjkmqZluf%2BSurBS1GC9RRm9BGj6BF%2FBqQvUWSH5LU5NG%2BzKxrGYokLgq2%2Fg%3D%3D&Q0=서울특별&Q1='+return_str+'&ORD=NAME&pageNo=1&numOfRows=10'
 
@@ -157,12 +157,6 @@ def message(request):
         for item in data:
             addr.append(item.find('dutytel1').get_text())
             name.append(item.find('dutyname').get_text())
-            url = 'https://www.google.com/search?q='+(item.find('dutyname').get_text())+'&source=lnms&tbm=isch&sa=X&ved=2ahUKEwiw0f_Ou-bqAhWBHXAKHTUrCFwQ_AUoAnoECA4QBA&biw=1295&bih=722'
-            req = requests.get(url)
-            html = req.text
-            soup = BeautifulSoup(html,'html.parser')
-            x = soup.select('img')
-            img.append(x[1]['src'])
 
             
 
@@ -184,11 +178,7 @@ def message(request):
             {
               "title": "약국",
               "description": "근처약국을 알려드려요",
-#추가
-             "thumbnail": {
-                "imageUrl": img[0]
-              },
-#추가
+
               "buttons": [
                 {
                   "action":  "webLink",
@@ -216,11 +206,7 @@ def message(request):
              {
               "title": "약국",
               "description": "근처약국을 알려드려요",
-#추가
-             "thumbnail": {
-                "imageUrl": img[2]
-              },
-#추가
+
               "buttons": [
                 {
                   "action":  "webLink",
@@ -232,11 +218,7 @@ def message(request):
              {
               "title": "약국",
               "description": "근처약국을 알려드려요",
-#추가
-             "thumbnail": {
-                "imageUrl": img[3]
-              },
-#추가
+
               "buttons": [
                 {
                   "action":  "webLink",
@@ -248,11 +230,7 @@ def message(request):
              {
               "title": "약국",
               "description": "근처약국을 알려드려요",
-#추가
-             "thumbnail": {
-                "imageUrl": img[4]
-              },
-#추가
+
               "buttons": [
                 {
                   "action":  "webLink",
@@ -264,11 +242,7 @@ def message(request):
              {
               "title": "약국",
               "description": "근처약국을 알려드려요",
-#추가
-             "thumbnail": {
-                "imageUrl": img[5]
-              },
-#추가
+
               "buttons": [
                 {
                   "action":  "webLink",
@@ -280,11 +254,7 @@ def message(request):
              {
               "title": "약국",
               "description": "근처약국을 알려드려요",
-#추가
-             "thumbnail": {
-                "imageUrl": img[6]
-              },
-#추가
+
               "buttons": [
                 {
                   "action":  "webLink",
@@ -296,11 +266,7 @@ def message(request):
              {
               "title": "약국",
               "description": "근처약국을 알려드려요",
-#추가
-             "thumbnail": {
-                "imageUrl": img[7]
-              },
-#추가
+
               "buttons": [
                 {
                   "action":  "webLink",
@@ -312,11 +278,7 @@ def message(request):
              {
               "title": "약국",
               "description": "근처약국을 알려드려요",
-#추가
-             "thumbnail": {
-                "imageUrl": img[8]
-              },
-#추가
+
               "buttons": [
                 {
                   "action":  "webLink",
@@ -328,11 +290,7 @@ def message(request):
              {
               "title": "약국",
               "description": "근처약국을 알려드려요",
-#추가
-             "thumbnail": {
-                "imageUrl": img[9]
-              },
-#추가
+
               "buttons": [
                 {
                   "action":  "webLink",
