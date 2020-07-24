@@ -1,3 +1,4 @@
+#-*- coding:utf-8 -*-
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import redirect
