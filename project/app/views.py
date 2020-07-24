@@ -438,7 +438,6 @@ def message(request):
     })
 
     else:
-      if return_str == "테스트" :
         return JsonResponse({
 "version": "2.0",
   "template": {
