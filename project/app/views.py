@@ -132,7 +132,91 @@ def message(request):
                 {
                   "action":  "webLink",
                   "label": "지도보기",
-                  "webLinkUrl": "https://m.map.naver.com/search2/search.nhn?query="+addr[2]
+                  "webLinkUrl": "https://map.naver.com/v5/search/"+addr[2]
+                }
+              ]
+            },
+             {
+              "title": "약국",
+              "description": "근처약국을 알려드려요",
+             
+              "buttons": [
+                {
+                  "action":  "webLink",
+                  "label": "지도보기",
+                  "webLinkUrl": "https://map.naver.com/v5/search/"+addr[3]
+                }
+              ]
+            },
+             {
+              "title": "약국",
+              "description": "근처약국을 알려드려요",
+             
+              "buttons": [
+                {
+                  "action":  "webLink",
+                  "label": "지도보기",
+                  "webLinkUrl": "https://map.naver.com/v5/search/"+addr[4]
+                }
+              ]
+            },
+             {
+              "title": "약국",
+              "description": "근처약국을 알려드려요",
+             
+              "buttons": [
+                {
+                  "action":  "webLink",
+                  "label": "지도보기",
+                  "webLinkUrl": "https://map.naver.com/v5/search/"+addr[5]
+                }
+              ]
+            },
+             {
+              "title": "약국",
+              "description": "근처약국을 알려드려요",
+             
+              "buttons": [
+                {
+                  "action":  "webLink",
+                  "label": "지도보기",
+                  "webLinkUrl": "https://map.naver.com/v5/search/"+addr[6]
+                }
+              ]
+            },
+             {
+              "title": "약국",
+              "description": "근처약국을 알려드려요",
+             
+              "buttons": [
+                {
+                  "action":  "webLink",
+                  "label": "지도보기",
+                  "webLinkUrl": "https://map.naver.com/v5/search/"+addr[7]
+                }
+              ]
+            },
+             {
+              "title": "약국",
+              "description": "근처약국을 알려드려요",
+             
+              "buttons": [
+                {
+                  "action":  "webLink",
+                  "label": "지도보기",
+                  "webLinkUrl": "https://map.naver.com/v5/search/"+addr[8]
+                }
+              ]
+            },
+             {
+              "title": "약국",
+              "description": "근처약국을 알려드려요",
+             
+              "buttons": [
+                {
+                  "action":  "webLink",
+                  "label": "지도보기",
+                  "webLinkUrl": "https://map.naver.com/v5/search/"+addr[9]
                 }
               ]
             }
@@ -229,7 +313,7 @@ def message(request):
       {
         "messageText": "마스크 약국 현황",
         "action": "message",
-        "label": "마스크 약국 현황"
+        "label": "근처 약국 현황"
       },
       {
         "messageText": "위탁병원 정보",
@@ -474,7 +558,7 @@ def message(request):
       {
         "messageText": "마스크 약국 현황",
         "action": "message",
-        "label": "마스크 약국 현황"
+        "label": "근처 약국 현황"
       },
       {
         "messageText": "위탁병원 정보",
