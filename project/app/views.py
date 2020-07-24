@@ -57,7 +57,7 @@ def message(request):
       id = return_json_str["userRequest"]["user"]["id"]
       choice = User.objects.get(userId=id)
       if choice.location == '확진자 정보':
-          if return_str == "강동구"
+          if return_str == "강동구" :
             return JsonResponse({
         "version": "2.0",
         "template": {
