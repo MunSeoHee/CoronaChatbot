@@ -202,7 +202,11 @@ def message(request):
              {
               "title": "약국",
               "description": "근처약국을 알려드려요",
-
+#추가
+             "thumbnail": {
+                "imageUrl": img[1]
+              },
+#추가
               "buttons": [
                 {
                   "action":  "webLink",
@@ -214,7 +218,11 @@ def message(request):
              {
               "title": "약국",
               "description": "근처약국을 알려드려요",
-
+#추가
+             "thumbnail": {
+                "imageUrl": img[2]
+              },
+#추가
               "buttons": [
                 {
                   "action":  "webLink",
@@ -226,7 +234,11 @@ def message(request):
              {
               "title": "약국",
               "description": "근처약국을 알려드려요",
-
+#추가
+             "thumbnail": {
+                "imageUrl": img[3]
+              },
+#추가
               "buttons": [
                 {
                   "action":  "webLink",
@@ -238,7 +250,11 @@ def message(request):
              {
               "title": "약국",
               "description": "근처약국을 알려드려요",
-
+#추가
+             "thumbnail": {
+                "imageUrl": img[4]
+              },
+#추가
               "buttons": [
                 {
                   "action":  "webLink",
@@ -250,7 +266,11 @@ def message(request):
              {
               "title": "약국",
               "description": "근처약국을 알려드려요",
-
+#추가
+             "thumbnail": {
+                "imageUrl": img[5]
+              },
+#추가
               "buttons": [
                 {
                   "action":  "webLink",
@@ -262,7 +282,11 @@ def message(request):
              {
               "title": "약국",
               "description": "근처약국을 알려드려요",
-
+#추가
+             "thumbnail": {
+                "imageUrl": img[6]
+              },
+#추가
               "buttons": [
                 {
                   "action":  "webLink",
@@ -274,7 +298,11 @@ def message(request):
              {
               "title": "약국",
               "description": "근처약국을 알려드려요",
-
+#추가
+             "thumbnail": {
+                "imageUrl": img[7]
+              },
+#추가
               "buttons": [
                 {
                   "action":  "webLink",
@@ -286,7 +314,11 @@ def message(request):
              {
               "title": "약국",
               "description": "근처약국을 알려드려요",
-
+#추가
+             "thumbnail": {
+                "imageUrl": img[8]
+              },
+#추가
               "buttons": [
                 {
                   "action":  "webLink",
@@ -298,7 +330,11 @@ def message(request):
              {
               "title": "약국",
               "description": "근처약국을 알려드려요",
-
+#추가
+             "thumbnail": {
+                "imageUrl": img[9]
+              },
+#추가
               "buttons": [
                 {
                   "action":  "webLink",
