@@ -18,6 +18,6 @@ from django.urls import path
 import app.views
 
 urlpatterns = [
-      url(r'^keyboard/?$', views.keyboard),
-    url(r'^message', views.message)
+      path(r'^keyboard/?$', views.keyboard),
+    path(r'^message', views.message)
 ]
