@@ -13,40 +13,43 @@ def message(request):
     answer = ((request.body).decode('utf-8'))
     return_json_str = json.loads(answer)
     return_str = return_json_str['userRequest']['utterance']
-    msg = return_json_str['quickReplies']['messageText']
+ 
 
-    if msg == "강남구":
+    if return_str == "강남구":
         return JsonResponse({
-            {
 "version": "2.0",
   "template": {
     "outputs": [
       {
         "simpleText": {
-          "text": "무엇을 알고 싶으신가요?"
+          "text": "지역을 선택해주세요"
         }
       }
     ],
     "quickReplies": [
       {
-        "messageText": "확진자 정보",
+        "messageText": "강남구",
         "action": "message",
-        "label": "확진자 정보"
+        "label": "강남구"
       },
       {
-        "messageText": "마스크 약국 현황",
+        "messageText": "중구",
         "action": "message",
-        "label": "마스크 약국 현황"
+        "label": "중구"
       },
       {
-        "messageText": "위탁 병원 정보",
+        "messageText": "서초구",
         "action": "message",
-        "label": "위탁 병원 정보"
+        "label": "서초구"
+      },
+      {
+        "messageText": "송파구",
+        "action": "message",
+        "label": "송파구"
       }
     ]
   }
-}
-        })
+})
     if return_str == '테스트':
         return JsonResponse({
 "version": "2.0",
