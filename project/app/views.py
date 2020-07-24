@@ -13,8 +13,9 @@ def message(request):
     answer = ((request.body).decode('utf-8'))
     return_json_str = json.loads(answer)
     return_str = return_json_str['userRequest']['utterance']
+    msg = return_json_str['quickReplies']['messageText']
 
-    if return_str == "강남구":
+    if msg == "강남구":
         return JsonResponse({
             {
 "version": "2.0",
