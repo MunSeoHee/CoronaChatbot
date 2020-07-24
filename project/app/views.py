@@ -1,12 +1,27 @@
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
+from django.shortcuts import redirect
 import json
 
 # Create your views here.
 def keyboard(request):
+    return redirect('/message/info')
+    
+@csrf_exempt
+def info(request):
     return JsonResponse({
-        'type': 'text'
-    })
+    "version": "2.0",
+    "template": {
+        "outputs": [
+            {
+                "simpleText": {
+                    "text": "간단한 텍스트 요소입니다."
+                }
+            }
+        ]
+    }
+})
+
 
 @csrf_exempt
 def message(request):
@@ -14,7 +29,8 @@ def message(request):
     return_json_str = json.loads(answer)
     return_str = return_json_str['userRequest']['utterance']
  
-
+    if return_str == "확진자 정보":
+        return 
     if return_str == "강남구":
         return JsonResponse({
 "version": "2.0",
